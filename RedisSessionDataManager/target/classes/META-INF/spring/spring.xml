@@ -8,8 +8,8 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
  
 	<bean id="RedisJsonSession" class="com.redis.te.redisjsonsession.RedisJsonSession">
-		<constructor-arg index="0" value="127.0.0.1"/>
-		<constructor-arg index="1" value="6379"/>
+                <constructor-arg index="0" value="#{systemEnvironment['REDIS_HOST']?:'localhost'}"/>
+                <constructor-arg index="1" value="#{systemEnvironment['REDIS_PORT']?:6379}"/>
 		<constructor-arg index="2" value="1234"/>
 		<constructor-arg index="3" value="false"/>
 	</bean>
